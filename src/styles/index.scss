@@ -1,0 +1,88 @@
+@import "variables";
+
+html,body {
+  margin: 0;
+  padding: 0;
+  background: rgb(245,246,247);
+}
+
+// 需响应屏幕宽度的变量
+// 超小屏
+$xs: 576px;
+// 小屏
+$sm: 768px;
+// 正常屏
+$md: 992px;
+// 大屏
+$lg: 1200px;
+// 超大屏
+$xl: 1400px;
+
+// 网格数
+$column-count: 24;
+
+// 设置网格 DIV
+.grid {
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat($column-count, 1fr);
+}
+
+// 每个列的占比
+@for $i from 1 through $column-count {
+  .grid-col-#{$i} {
+    grid-column: span $i;
+    width: 100%;
+    box-sizing: border-box;
+  }
+}
+
+// 响应式设置 xs sm md lg 四个屏幕响应
+@media (min-width: $xs) {
+  @for $i from 1 through $column-count {
+    .grid-col-xs-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media (min-width: $sm) {
+  @for $i from 1 through $column-count {
+    .grid-col-sm-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media (min-width: $md) {
+  @for $i from 1 through $column-count {
+    .grid-col-md-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media (min-width: $lg) {
+  @for $i from 1 through $column-count {
+    .grid-col-lg-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+@media (min-width: $xl) {
+  @for $i from 1 through $column-count {
+    .grid-col-xl-#{$i} {
+      grid-column: span $i;
+    }
+  }
+}
+
+// 卡片
+.card {
+  width: 100%;
+  box-sizing: border-box;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  background: rgba(255, 255, 255, 0.8);
+  border-radius: 4px;
+}
